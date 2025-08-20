@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#121a35">
+    <title>PDF/Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+    <header class="container header">
+        <h1 class="brand">Summarize</h1>
+        <nav class="nav">
+            <a href="{{ url_for('landing') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('app_page') }}" class="nav-link">App</a>
+            <input id="theme-toggle" class="toggle-input" type="checkbox" aria-label="Toggle theme" hidden>
+            <label for="theme-toggle" class="toggle" title="Toggle theme" aria-hidden="true">
+                <span class="toggle-track"></span>
+                <span class="toggle-thumb"></span>
+                <span class="toggle-icon sun">☀</span>
+                <span class="toggle-icon moon">🌙</span>
+            </label>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="loading-overlay" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Summarizing…</p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="container muted footer">
+        <p>Built for quick reading. Works offline with local summarizer.</p>
+    </footer>
+</body>
+</html>

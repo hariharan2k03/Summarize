@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="hero">
+        <h2>Turn long PDFs and text into clear summaries</h2>
+        <p class="muted">Upload a PDF or paste text. Choose a style and get a concise summary in seconds.</p>
+    </section>
+
+    <section class="card fade-in">
+        <form id="summary-form" method="post" action="{{ url_for('summarize') }}" enctype="multipart/form-data" class="stack">
+            <label for="file"><strong>PDF/TXT file</strong></label>
+            <input type="file" id="file" name="file" accept=".pdf,.txt" />
+
+            <div class="divider">or</div>
+
+            <label for="text"><strong>Paste text</strong></label>
+            <textarea id="text" name="text" rows="12" placeholder="Paste text here..."></textarea>
+            <small id="char-count" class="muted">0 characters</small>
+
+            <label for="format"><strong>Summary style</strong></label>
+            <select id="format" name="format">
+                <option value="bullets" selected>Bullet points</option>
+                <option value="study">Study notes</option>
+                <option value="abstract">Concise paragraph</option>
+            </select>
+
+            <button id="submit-btn" type="submit">Summarize</button>
+        </form>
+    </section>
+{% endblock %}

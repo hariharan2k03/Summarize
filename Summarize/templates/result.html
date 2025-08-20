@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="card fade-in">
+        <div class="row">
+            <h2>Summary</h2>
+            <div class="actions">
+                <button id="copy-btn" type="button" class="secondary">Copy</button>
+            </div>
+        </div>
+        <div id="summary-text" class="summary">{{ summary|safe }}</div>
+        <form method="post" action="{{ url_for('download') }}" class="row">
+            <input type="hidden" name="summary" value="{{ summary }}" />
+            <button type="submit">Download as PDF</button>
+            <a class="button linklike" href="{{ url_for('app_page') }}">Summarize another</a>
+        </form>
+    </section>
+{% endblock %}

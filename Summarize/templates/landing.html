@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="hero">
+        <h2>Summarize smarter.</h2>
+        <p class="muted">Upload PDFs or paste text and get clean summaries in bullet points, study notes, or a concise paragraph.</p>
+        <p>
+            <a class="button" href="{{ url_for('app_page') }}">Get started</a>
+        </p>
+    </section>
+
+    <section class="card fade-in">
+        <h3>How it works</h3>
+        <ol>
+            <li>Upload a PDF or paste your text</li>
+            <li>Choose a summary style</li>
+            <li>Download or copy the summary</li>
+        </ol>
+    </section>
+{% endblock %}
+
+
