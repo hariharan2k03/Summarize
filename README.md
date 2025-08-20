@@ -35,8 +35,8 @@ Built with Flask + Jinja2, styled with a modern dark theme, and includes copy-to
 
  Quickstart
 1) Clone and enter
-git clone https://github.com/yourname/pdf-text-summarizer.git
-cd pdf-text-summarizer
+git clone (https://github.com/hariharan2k03/Summarize.git)
+cd summarizer
 
 2) Create venv and install deps
 python -m venv venv
